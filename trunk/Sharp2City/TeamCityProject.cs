@@ -1,0 +1,127 @@
+#region File Header
+
+// Copyright (c) 2010, Stefan Stolz
+// All rights reserved.
+// 
+// Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+// 
+// * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+// 
+// * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+// 
+// * Neither the name of Sharp2City nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+// 
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+#endregion
+
+#region using directives
+
+using System;
+using System.Diagnostics;
+
+#endregion
+
+namespace Sharp2City
+{
+    public sealed class TeamCityProject
+    {
+        #region private fields
+
+        private readonly bool archived;
+
+        private readonly string description;
+
+        private readonly string href;
+
+        private readonly string id;
+
+        private readonly string name;
+
+        private readonly string webUrl;
+
+        #endregion
+
+        #region constructors
+
+        internal TeamCityProject(XmlProject project)
+        {
+            if (project == null) throw new ArgumentNullException("project");
+            this.name = project.Name;
+            this.id = project.Id;
+            this.href = project.Href;
+            this.archived = project.Archived;
+            this.description = project.Description;
+            this.webUrl = project.WebUrl;
+        }
+
+        #endregion
+
+        #region public override methods
+
+        public override string ToString()
+        {
+            return (this.name);
+        }
+
+        #endregion
+
+        #region public properties
+
+        public bool Archived
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.archived;
+            }
+        }
+
+        public string Description
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.description;
+            }
+        }
+
+        public string Href
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.href;
+            }
+        }
+
+        public string Id
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.id;
+            }
+        }
+
+        public string Name
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.name;
+            }
+        }
+
+        public string WebUrl
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.webUrl;
+            }
+        }
+
+        #endregion
+    }
+}
