@@ -17,5 +17,5 @@
 
 namespace Sharp2City
 {
-    public delegate void ProcessArtifactsCallback(string fileName);
+    public delegate void DownloadArtifactsCallback(string fileName);
 }

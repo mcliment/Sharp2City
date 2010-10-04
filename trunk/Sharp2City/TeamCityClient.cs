@@ -199,7 +199,7 @@ namespace Sharp2City
             }
         }
 
-        public void GetArtifacts(int buildId, ProcessArtifactsCallback processArtifactsCallback)
+        public void DownloadArtifacts(int buildId, DownloadArtifactsCallback downloadArtifactsCallback)
         {
             Uri uri = this.connection.CreateUri(string.Format(CultureInfo.InvariantCulture,
                                                               "/httpAuth/downloadArtifacts.html?buildId={0}",
@@ -210,7 +210,7 @@ namespace Sharp2City
             {
                 this.connection.Download(uri,
                                          tempFileName);
-                processArtifactsCallback(tempFileName);
+                downloadArtifactsCallback(tempFileName);
             }
             finally
             {
