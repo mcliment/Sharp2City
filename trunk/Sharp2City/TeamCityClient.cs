@@ -199,7 +199,12 @@ namespace Sharp2City
             }
         }
 
-        public void DownloadArtifacts(int buildId, DownloadArtifactsCallback downloadArtifactsCallback)
+        /// <summary>
+        /// Downloads the Artifacts of the Build with the specified <paramref name="buildId"/>
+        /// </summary>
+        /// <param name="buildId">The Build Id of the Artifacts to load</param>
+        /// <param name="processArtifactsCallback">A method that will be called after the download.</param>
+        public void DownloadArtifacts(int buildId, ProcessArtifactsCallback processArtifactsCallback)
         {
             Uri uri = this.connection.CreateUri(string.Format(CultureInfo.InvariantCulture,
                                                               "/httpAuth/downloadArtifacts.html?buildId={0}",
@@ -210,7 +215,7 @@ namespace Sharp2City
             {
                 this.connection.Download(uri,
                                          tempFileName);
-                downloadArtifactsCallback(tempFileName);
+                processArtifactsCallback(tempFileName);
             }
             finally
             {

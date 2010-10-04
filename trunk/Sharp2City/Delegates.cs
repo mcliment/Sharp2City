@@ -17,5 +17,11 @@
 
 namespace Sharp2City
 {
-    public delegate void DownloadArtifactsCallback(string fileName);
+    /// <summary>
+    /// A method that processes the downloaded artifact.
+    /// </summary>
+    /// <param name="fileName">A name of the temporary file of the artifacts.</param>
+    /// <remarks>The Download is only temporary available; it will be deleted after the execution
+    /// of this method.</remarks>
+    public delegate void ProcessArtifactsCallback(string fileName);
 }
