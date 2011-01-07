@@ -207,6 +207,8 @@ namespace Sharp2City
 
         private string webUrl;
 
+        private string statusText;
+
         #endregion
 
         #region public properties
@@ -283,6 +285,19 @@ namespace Sharp2City
             set
             {
                 this.number = value;
+            }
+        }
+
+        [XmlElement("statusText")]
+        public string StatusText
+        {
+            get
+            {
+                return this.statusText;
+            }
+            set
+            {
+                this.statusText = value;
             }
         }
 

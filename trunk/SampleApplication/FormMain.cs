@@ -134,5 +134,19 @@ namespace SampleApplication
         private delegate void Action();
 
         #endregion
+
+        private void OnButtonShowAllBuildsClick(object sender, EventArgs e)
+        {
+            foreach (var build in this.teamCityClient.GetAllBuilds())
+            {
+                var sb = new StringBuilder();
+
+                sb.AppendFormat("BuildId: {0}", build.BuildId).AppendLine();
+                sb.AppendFormat("FinishDate: {0}", build.FinishDate).AppendLine();
+                sb.AppendFormat("StatusText: {0}", build.StatusText).AppendLine();
+
+                this.textBoxOutput.AppendText(sb.ToString());
+            }
+        }
     }
 }

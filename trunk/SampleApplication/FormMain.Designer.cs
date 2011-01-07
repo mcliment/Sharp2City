@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBoxAccess = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxHostName = new System.Windows.Forms.TextBox();
             this.buttonShowServerInfo = new System.Windows.Forms.Button();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
+            this.buttonShowAllBuilds = new System.Windows.Forms.Button();
             this.groupBoxAccess.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,14 +56,14 @@
             this.groupBoxAccess.TabStop = false;
             this.groupBoxAccess.Text = "Access Data";
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Hostname:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Password:";
             // 
             // label2
             // 
@@ -73,14 +74,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Username:";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Password:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Hostname:";
             // 
             // textBoxPassword
             // 
@@ -135,11 +136,22 @@
             this.textBoxOutput.TabIndex = 2;
             this.textBoxOutput.WordWrap = false;
             // 
+            // buttonShowAllBuilds
+            // 
+            this.buttonShowAllBuilds.Location = new System.Drawing.Point(302, 55);
+            this.buttonShowAllBuilds.Name = "buttonShowAllBuilds";
+            this.buttonShowAllBuilds.Size = new System.Drawing.Size(124, 23);
+            this.buttonShowAllBuilds.TabIndex = 3;
+            this.buttonShowAllBuilds.Text = "Show All Builds";
+            this.buttonShowAllBuilds.UseVisualStyleBackColor = true;
+            this.buttonShowAllBuilds.Click += new System.EventHandler(this.OnButtonShowAllBuildsClick);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 293);
+            this.Controls.Add(this.buttonShowAllBuilds);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.buttonShowServerInfo);
             this.Controls.Add(this.groupBoxAccess);
@@ -163,6 +175,7 @@
         private System.Windows.Forms.TextBox textBoxHostName;
         private System.Windows.Forms.Button buttonShowServerInfo;
         private System.Windows.Forms.TextBox textBoxOutput;
+        private System.Windows.Forms.Button buttonShowAllBuilds;
     }
 }
 

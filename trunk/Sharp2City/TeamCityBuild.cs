@@ -17,6 +17,7 @@
 
 #region using directives
 
+using System;
 using System.Diagnostics;
 
 #endregion
@@ -30,15 +31,7 @@ namespace Sharp2City
     {
         #region private fields
 
-        /// <summary>
-        ///   The Build Id
-        /// </summary>
-        private readonly int buildId;
-
-        /// <summary>
-        ///   The Build Status
-        /// </summary>
-        private readonly string status;
+        private readonly XmlBuild xmlBuild;
 
         #endregion
 
@@ -50,8 +43,7 @@ namespace Sharp2City
         /// <param name = "xmlBuild">The deserialized Response from TeamCity</param>
         internal TeamCityBuild(XmlBuild xmlBuild)
         {
-            this.status = xmlBuild.Status;
-            this.buildId = xmlBuild.Id;
+            this.xmlBuild = xmlBuild;
         }
 
         #endregion
@@ -66,10 +58,37 @@ namespace Sharp2City
         /// </returns>
         public override string ToString()
         {
-            return (this.status);
+            return (this.xmlBuild.Status);
         }
 
         #endregion
+
+        public DateTime StartDate
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return Helpers.ParseTeamCityTimeStamp(this.xmlBuild.StartDate);
+            }
+        }
+
+        public DateTime FinishDate
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return Helpers.ParseTeamCityTimeStamp(this.xmlBuild.FinishDate);
+            }
+        }
+
+        public string StatusText
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return this.xmlBuild.StatusText;
+            }
+        }
 
         #region public properties
 
@@ -81,7 +100,7 @@ namespace Sharp2City
             [DebuggerStepThrough]
             get
             {
-                return this.buildId;
+                return this.xmlBuild.Id;
             }
         }
 
@@ -93,16 +112,16 @@ namespace Sharp2City
             [DebuggerStepThrough]
             get
             {
-                switch (this.status)
+                switch (this.xmlBuild.Status)
                 {
                     case "SUCCESS":
-                    {
-                        return (BuildStatus.Success);
-                    }
+                        {
+                            return (BuildStatus.Success);
+                        }
                     default:
-                    {
-                        return (BuildStatus.Failed);
-                    }
+                        {
+                            return (BuildStatus.Failed);
+                        }
                 }
             }
         }
