@@ -127,6 +127,14 @@ namespace SampleApplication
             }
         }
 
+        bool ITeamCityAccessConfiguration.UseSSL
+        {
+            get
+            {
+                return this.checkBoxUseSsl.Checked;
+            }
+        }
+
         #endregion
 
         #region Nested type: Action

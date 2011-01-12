@@ -43,6 +43,11 @@ namespace Sharp2City
         /// </summary>
         string UserName { get; }
 
+        /// <summary>
+        /// Gets a value indicating whether to use SSL or not
+        /// </summary>
+        bool UseSSL { get; }
+
         #endregion
     }
 }

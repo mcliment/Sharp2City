@@ -69,8 +69,23 @@ namespace Sharp2City
         public TeamCityClient(string hostName, string userName, string password)
             : this(new DefaultAccessConfiguration(hostName,
                                                   userName,
-                                                  password))
+                                                  password, 
+                                                  false))
         {}
+
+        /// <summary>
+        ///   Initializes a new instance of the <see cref = "TeamCityClient" /> class.
+        /// </summary>
+        /// <param name = "hostName">Name of the host.</param>
+        /// <param name = "userName">Name of the user.</param>
+        /// <param name = "password">The password.</param>
+        /// <param name="useSsl">A value indicating whether to use SSL or not</param>
+        public TeamCityClient(string hostName, string userName, string password, bool useSsl)
+            : this(new DefaultAccessConfiguration(hostName,
+                                                  userName,
+                                                  password,
+                                                  useSsl))
+        { }
 
         #endregion
 
@@ -307,15 +322,18 @@ namespace Sharp2City
 
             private readonly string userName;
 
+            private readonly bool useSsl;
+
             #endregion
 
             #region constructors
 
-            public DefaultAccessConfiguration(string hostName, string userName, string password)
+            public DefaultAccessConfiguration(string hostName, string userName, string password, bool useSsl)
             {
                 this.hostName = hostName;
                 this.password = password;
                 this.userName = userName;
+                this.useSsl = useSsl;
             }
 
             #endregion
@@ -352,6 +370,14 @@ namespace Sharp2City
                 get
                 {
                     return this.userName;
+                }
+            }
+
+            public bool UseSSL
+            {
+                get
+                {
+                    return this.useSsl;
                 }
             }
 

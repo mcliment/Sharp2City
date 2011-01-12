@@ -65,12 +65,22 @@ namespace Sharp2City
         /// <returns>An <see cref = "Uri" /> with the absolute Location of the Resources</returns>
         public Uri CreateUri(string relativeUrl)
         {
-            Uri uri = new Uri(new Uri(string.Format(CultureInfo.InvariantCulture,
-                                                    "http://{0}",
-                                                    this.configuration.HostName)),
-                              relativeUrl);
+            if(this.configuration.UseSSL)
+            {
+                return new Uri(new Uri(string.Format(CultureInfo.InvariantCulture,
+                                                        "https://{0}",
+                                                        this.configuration.HostName)),
+                                  relativeUrl);
 
-            return (uri);
+            }
+            else
+            {
+                return new Uri(new Uri(string.Format(CultureInfo.InvariantCulture,
+                                                        "http://{0}",
+                                                        this.configuration.HostName)),
+                                  relativeUrl);
+                
+            }
         }
 
         /// <summary>

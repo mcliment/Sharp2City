@@ -38,11 +38,13 @@
             this.buttonShowServerInfo = new System.Windows.Forms.Button();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.buttonShowAllBuilds = new System.Windows.Forms.Button();
+            this.checkBoxUseSsl = new System.Windows.Forms.CheckBox();
             this.groupBoxAccess.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxAccess
             // 
+            this.groupBoxAccess.Controls.Add(this.checkBoxUseSsl);
             this.groupBoxAccess.Controls.Add(this.label3);
             this.groupBoxAccess.Controls.Add(this.label2);
             this.groupBoxAccess.Controls.Add(this.label1);
@@ -51,7 +53,7 @@
             this.groupBoxAccess.Controls.Add(this.textBoxHostName);
             this.groupBoxAccess.Location = new System.Drawing.Point(12, 12);
             this.groupBoxAccess.Name = "groupBoxAccess";
-            this.groupBoxAccess.Size = new System.Drawing.Size(284, 100);
+            this.groupBoxAccess.Size = new System.Drawing.Size(284, 121);
             this.groupBoxAccess.TabIndex = 0;
             this.groupBoxAccess.TabStop = false;
             this.groupBoxAccess.Text = "Access Data";
@@ -127,12 +129,12 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxOutput.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxOutput.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOutput.Location = new System.Drawing.Point(12, 118);
+            this.textBoxOutput.Location = new System.Drawing.Point(12, 149);
             this.textBoxOutput.Multiline = true;
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.ReadOnly = true;
             this.textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxOutput.Size = new System.Drawing.Size(617, 163);
+            this.textBoxOutput.Size = new System.Drawing.Size(617, 251);
             this.textBoxOutput.TabIndex = 2;
             this.textBoxOutput.WordWrap = false;
             // 
@@ -146,11 +148,21 @@
             this.buttonShowAllBuilds.UseVisualStyleBackColor = true;
             this.buttonShowAllBuilds.Click += new System.EventHandler(this.OnButtonShowAllBuildsClick);
             // 
+            // checkBoxUseSsl
+            // 
+            this.checkBoxUseSsl.AutoSize = true;
+            this.checkBoxUseSsl.Location = new System.Drawing.Point(70, 97);
+            this.checkBoxUseSsl.Name = "checkBoxUseSsl";
+            this.checkBoxUseSsl.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxUseSsl.TabIndex = 3;
+            this.checkBoxUseSsl.Text = "Use SSL";
+            this.checkBoxUseSsl.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 293);
+            this.ClientSize = new System.Drawing.Size(809, 412);
             this.Controls.Add(this.buttonShowAllBuilds);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.buttonShowServerInfo);
@@ -176,6 +188,7 @@
         private System.Windows.Forms.Button buttonShowServerInfo;
         private System.Windows.Forms.TextBox textBoxOutput;
         private System.Windows.Forms.Button buttonShowAllBuilds;
+        private System.Windows.Forms.CheckBox checkBoxUseSsl;
     }
 }
 
